@@ -31,7 +31,7 @@ object RepositoryTest {
 
 /*--------------------定义一个领导----------------------------------*/
 abstract class Leader(val CurName:String){
-  var In_leader:Leader
+  var In_leader:Leader //自己的上级领导
   /*--------------------业务级别------------------*/
   def canHandler(busiLev:Int):Boolean
 
