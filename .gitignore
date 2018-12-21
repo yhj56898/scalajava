@@ -13,3 +13,4 @@ target/classes/com/hj/basic/设计模式/Meal.class
 .gitattributes
 .idea/vcs.xml
 .idea/vcs.xml
+target/classes/META-INF/scalajava.kotlin_module
