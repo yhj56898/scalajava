@@ -14,3 +14,5 @@ target/classes/com/hj/basic/设计模式/Meal.class
 .idea/vcs.xml
 .idea/vcs.xml
 target/classes/META-INF/scalajava.kotlin_module
+target/classes/com/hj/data_struct_alg/数据-数据结构-算法
+target/test-classes/META-INF/scalajava.kotlin_module
