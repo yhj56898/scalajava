@@ -23,7 +23,7 @@ class WcntTest(file:String) extends Actor{
             .toList.groupBy(_._1)
             .mapValues(_.size)
 
-          sender ! ReMsg(rs)
+          sender ! ReMsg3(rs)
         }
       }
     }
@@ -31,9 +31,9 @@ class WcntTest(file:String) extends Actor{
   }
 }
 
-case object SubmitTask
-case class ReMsg(rs:Map[String,Int])
-case object Stop
+case object SubmitTask2
+case class ReMsg3(rs:Map[String,Int])
+case object Stop2
 
 object WcntTest{
 
@@ -41,7 +41,7 @@ object WcntTest{
 
     val fs =ListBuffer[Actor]()
     val data = ListBuffer[Future[Any]]()
-    val rs = ListBuffer[ReMsg]()
+    val rs = ListBuffer[ReMsg3]()
 
     val files =Array("F:\\word.txt","F:\\word2.txt")
     for(file <- files){
@@ -59,7 +59,7 @@ object WcntTest{
 
       val f =data.head
       if(f.isSet){
-        rs += f().asInstanceOf[ReMsg]
+        rs += f().asInstanceOf[ReMsg3]
         data -= f
       }
 

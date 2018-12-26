@@ -12,12 +12,17 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
-        <scala.version>2.10.6</scala.version>
+
         <spark.version>1.6.1</spark.version>
         <hadoop.version>2.6.4</hadoop.version>
         <mahout.version>0.10.0</mahout.version>
 
         <kudu.version>1.5.0</kudu.version>
+
+        <!--<scala.version>2.10.6</scala.version>-->
+        <scala.version>2.11.8</scala.version>
+
+        <akka.version>2.4.17</akka.version>
 
         <spring.version>4.3.16.RELEASE</spring.version>
 
@@ -38,8 +43,15 @@
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.11</artifactId>
-            <version>2.4.17</version>
+            <version>${akka.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_2.11</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.jgrapht</groupId>
