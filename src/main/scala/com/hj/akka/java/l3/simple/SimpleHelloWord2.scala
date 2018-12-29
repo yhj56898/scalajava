@@ -50,7 +50,7 @@ class Master_2 extends Actor {
   }
 
   override def receive: Receive = {
-    case Terminated(`talker`) => context.system.shutdown()
+    case Terminated(`talker`) => //context.system.shutdown()
   }
 
 }

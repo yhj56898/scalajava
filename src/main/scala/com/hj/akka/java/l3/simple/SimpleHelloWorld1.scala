@@ -26,7 +26,7 @@ class SimpleHelloWorld1 extends Actor{
     case SimpleGreet(name) => println(s"Hello $name")
     case SimplePraise(name) => println(s"$name, you're amazing")
     case SimpleCelebrate(name, age) => println(s"Here's to another $age years, $name")
-    case Stop => context.system.shutdown() ;println("ActorSystem stopped")
+    case Stop => //context.system.shutdown() ;println("ActorSystem stopped")
   }
 
 }

@@ -3,59 +3,83 @@ package com.hj.akka.java.l2
 import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
-import scala.concurrent.Await
-import scala.concurrent.duration.Duration
+import scala.collection.mutable
+import scala.concurrent.duration._
 
 /**
   * @author hejin-Yu
   * @desc
   **/
-class Master extends Actor{
+class Master extends Actor {
 
-  println("constructor invoked!")
+  val id_workers = new mutable.HashMap[String, WorkInfo]()
+  val workers = new mutable.HashSet[WorkInfo]()
 
-  /**
-    * 消息处理
-    * @return
-    */
+  val check_interval = 8000
+
   override def receive: Receive = {
 
-    case "connect" => {
-      println("a client connected")
-      sender ! "reply"
+    case CheckTimeOut => {
+
+      val curTime = System.currentTimeMillis()
+      val removeW = workers.filter(w => {
+        curTime - w.lastCheckTime > check_interval
+      })
+
+      removeW.foreach(w => {
+        id_workers -= w.id
+        workers -= w
+      })
+
+      println(s"Master中注册的存活Worker有【${workers.size}】个")
     }
-    case "hello" =>{
-      println("hello")
+
+    case RegisterWorkInfo(id) => {
+      if (!id_workers.contains(id)) {
+        println(s"接收到worker[${id}]的注册请求")
+
+        val w = WorkInfo(id)
+        id_workers += id -> w
+        workers += w
+
+        sender ! RegistedSuccess
+      }
+    }
+    case ProceedHeartBeat(id) => {
+      if (id_workers.contains(id)) {
+        val w = id_workers(id)
+        w.lastCheckTime = System.currentTimeMillis()
+      }
     }
   }
 
-  override def preRestart(reason: Throwable, message: Option[Any]): Unit = {
-    println("pre start(） invoked!")
+  override def preStart(): Unit = {
+
+    println("Master starting")
+
+    import context.dispatcher
+    context.system.scheduler.schedule(0 millis, check_interval millis, self, CheckTimeOut)
   }
 }
-object Master{
+
+object Master {
   def main(args: Array[String]): Unit = {
 
-    val host =args(0)
-    val port = args(1)
+    val host = "localhost"
 
-    val configStr=
+    val port = 8080
+
+    val config =ConfigFactory.parseString(
       s"""
-        |akka.actor.provider = "akka.remote.RemoteActorRefProvider"
-        |akka.remote.netty.tcp.hostname = "${host}"
-        |akka.remote.netty.tcp.port = "$port"
-      """.stripMargin
+        |akka.actor.provider="akka.remote.RemoteActorRefProvider"
+        |akka.remote.netty.tcp.hostname=$host
+        |akka.remote.netty.tcp.port=$port
+      """.stripMargin)
 
-    val config =ConfigFactory.parseString(configStr)
+    val MasterSys = ActorSystem("MasterSystem",config)
 
-    val actorSys = ActorSystem("MasterSystem",config)
+    MasterSys.actorOf(Props[Master],"Master")
 
-    val master =actorSys.actorOf(Props[Master](),"Master")
 
-    master !"hello"
-
-    //Await.result[ActorSystem](actorSys,Duration.Inf)
-
-    actorSys.awaitTermination()
   }
 }
