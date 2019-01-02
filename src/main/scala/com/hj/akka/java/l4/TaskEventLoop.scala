@@ -16,8 +16,6 @@ class TaskEventLoop(name:String) extends EventLoop[TaskEvent](name){
    case TaskSubmit(name)=>{
       println("提交了一个任务",name)
 
-
-
       try{
         TimeUnit.SECONDS.sleep(2)
         if(name=="任务6"){
