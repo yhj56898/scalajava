@@ -35,6 +35,8 @@ case class ReMsg2(id:Int,msg:String)
 object MyActor0{
 
   def main(args: Array[String]): Unit = {
+
+
     val ac = new MyActor0().start()
 
     ac !"start"
@@ -45,8 +47,7 @@ object MyActor0{
 
     println(rs)
 
-    ac ! Stop
-
+    //ac ! Stop
   }
 
 }

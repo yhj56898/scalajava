@@ -1,0 +1,54 @@
+2019-01-02 19:55:21,907  INFO SimpleTriggerExample2:20 - ------- Initializing -------------------
+2019-01-02 19:55:22,087  INFO StdSchedulerFactory:1184 - Using default implementation for ThreadExecutor
+2019-01-02 19:55:22,107  INFO SimpleThreadPool:268 - Job execution threads will use class loader of thread: main
+2019-01-02 19:55:22,167  INFO SchedulerSignalerImpl:61 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-01-02 19:55:22,167  INFO QuartzScheduler:240 - Quartz Scheduler v.2.2.1 created.
+2019-01-02 19:55:22,177  INFO RAMJobStore:155 - RAMJobStore initialized.
+2019-01-02 19:55:22,177  INFO QuartzScheduler:305 - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-01-02 19:55:22,177  INFO StdSchedulerFactory:1339 - Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2019-01-02 19:55:22,177  INFO StdSchedulerFactory:1343 - Quartz scheduler version: 2.2.1
+2019-01-02 19:55:22,177  INFO SimpleTriggerExample2:25 - ------- Initialization Complete --------
+2019-01-02 19:55:22,177  INFO SimpleTriggerExample2:27 - ------- Scheduling Jobs ----------------
+2019-01-02 19:55:22,527  INFO SimpleTriggerExample2:42 - group1.job2 will run at: Wed Jan 02 19:55:30 CST 2019 and repeat: 0 times, every 0 seconds
+2019-01-02 19:55:22,527  INFO QuartzScheduler:575 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2019-01-02 19:55:22,547  INFO SimpleTriggerExample2:53 - 'Manually' triggering job8...
+2019-01-02 19:55:22,557  INFO example2-quartz:23 - SimpleJob says: group1.job8 executing at Wed Jan 02 19:55:22 CST 2019
+2019-01-02 19:55:30,008  INFO example2-quartz:23 - SimpleJob says: group1.job2 executing at Wed Jan 02 19:55:30 CST 2019
+2019-01-02 19:55:52,548  INFO QuartzScheduler:694 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+2019-01-02 19:55:52,548  INFO QuartzScheduler:613 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+2019-01-02 19:55:53,008  INFO QuartzScheduler:771 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+2019-01-02 20:01:28,083  INFO SimpleTriggerExample2:20 - ------- Initializing -------------------
+2019-01-02 20:01:28,143  INFO StdSchedulerFactory:1184 - Using default implementation for ThreadExecutor
+2019-01-02 20:01:28,143  INFO SimpleThreadPool:268 - Job execution threads will use class loader of thread: main
+2019-01-02 20:01:28,163  INFO SchedulerSignalerImpl:61 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-01-02 20:01:28,163  INFO QuartzScheduler:240 - Quartz Scheduler v.2.2.1 created.
+2019-01-02 20:01:28,173  INFO RAMJobStore:155 - RAMJobStore initialized.
+2019-01-02 20:01:28,173  INFO QuartzScheduler:305 - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-01-02 20:01:28,173  INFO StdSchedulerFactory:1339 - Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2019-01-02 20:01:28,173  INFO StdSchedulerFactory:1343 - Quartz scheduler version: 2.2.1
+2019-01-02 20:01:28,173  INFO SimpleTriggerExample2:25 - ------- Initialization Complete --------
+2019-01-02 20:01:28,173  INFO SimpleTriggerExample2:27 - ------- Scheduling Jobs ----------------
+2019-01-02 20:01:28,353  INFO SimpleTriggerExample2:42 - group1.job2 will run at: Wed Jan 02 20:01:30 CST 2019 and repeat: 0 times, every 0 seconds
+2019-01-02 20:01:28,353  INFO QuartzScheduler:575 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2019-01-02 20:01:28,363  INFO SimpleTriggerExample2:53 - 'Manually' triggering job8...
+2019-01-02 20:01:28,363  INFO SimpleTriggerExample2:57 - ------- Rescheduling... --------------------
+2019-01-02 20:01:28,363  INFO SimpleTriggerExample2:67 - job7 rescheduled to run at: Wed Jan 02 20:01:30 CST 2019
+2019-01-02 20:01:28,373  INFO example2-quartz:23 - SimpleJob says: group1.job8 executing at Wed Jan 02 20:01:28 CST 2019
+2019-01-02 20:01:30,003  INFO example2-quartz:23 - SimpleJob says: group1.job2 executing at Wed Jan 02 20:01:30 CST 2019
+2019-01-02 20:01:58,363  INFO QuartzScheduler:694 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+2019-01-02 20:01:58,363  INFO QuartzScheduler:613 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+2019-01-02 20:01:58,643  INFO QuartzScheduler:771 - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.

@@ -5,6 +5,7 @@ import com.typesafe.config.ConfigFactory
 
 import scala.collection.mutable
 import scala.concurrent.duration._
+import scala.io.StdIn
 
 /**
   * @author hejin-Yu
@@ -80,6 +81,8 @@ object Master {
 
     MasterSys.actorOf(Props[Master],"Master")
 
+    try StdIn.readLine()
+    finally MasterSys.terminate()
 
   }
 }
