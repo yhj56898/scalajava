@@ -1,0 +1,62 @@
+简单起见，可以这样理解
+
+工厂模式
+FactoryPattern factory= new FactoryPattern()
+factory.getProduct(Enum eumValue)
+
+抽象工厂是对工厂模式的再次抽象，抽象工厂生产类中，会对外暴露工厂模式
+AbstractFactoryProduer producer = new AbstractFactoryProduer()
+producer.getProducerWithFactory1(Enum eumValue)
+producer.getProducerWithFactory2(Enum eumValue)
+
+
+建造者模式
+Instance instane = new InstanceBuilder()
+    .属性(属性类型 属性值)
+    .属性(属性类型 属性值)
+    .属性(属性类型 属性值)
+    .build()
+
+
+
+策略模式
+InterfaceStrategy strategy1 = new Impl(){}
+InterfaceStrategy strategy2 = new Impl(){}
+InterfaceStrategy strategy3 = new Impl(){}
+
+StrategyPattern pattern = new StrategyPattern(InterfaceStrategy strategy)
+pattern.doExcute ==> strategy.定义的对外的方法
+
+
+状态模式
+StatePattern pattern = new StatePattern()
+pattern.setState(State state)
+    /*
+         * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         *
+         * 策略模式、状态模式，很类似，解决的 都是 if..else 多分支判断与选择问题
+
+         * 策略模式，简单就是 Context ctx = new Context(具体的接口实现类)
+           状态模式，简单就是  Context ctx = new Context()
+            ctx.setState(具体的接口实现类)
+         * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         */
+
+
+观察者模式
+有个一对多的依赖关系，只需要对一的这方，做出对应操作，其内的多方将会做出响应
+
+
+组合模式
+将若干对象进行分组，最终形成组织结构树，
+
+
+装饰器模式
+简单理解
+1.已有一个接口
+2.已有一个接口实现类
+3.扩展已有接口实现类的功能，但是，又不想修改该类的既有功能
+4.扩展一个抽象类，通过构造器，注入需要扩展的类，并对外提供一个本抽象类的待实现方法
+4-2.本抽象类，实现已有接口：调用已有实现类，并调用本抽象类方法
+5.最终达到，针对特定某个 创建出的类，可以反反复复地进行功能扩展
+

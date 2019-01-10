@@ -1,0 +1,15 @@
+https://www.cnblogs.com/jzb-blog/p/6717349.html
+
+当前日志采用
+    log4j+ slf4j
+    调用方式为
+    private static final Logger logger = LoggerFactory.getLogger(Component.class);
+    logger.error(string);
+
+    这样打印出来的是毫无规范的一行行字符串
+
+    目前有的是统一接口Logger和其具体实现类，要加的就是一个装饰类和真正封装成Json格式的装饰产品类
+
+
+
+    若，已有接口，内部方法过多，通过实现的机制，很不方便，故，推出了scene下的LogDecoration2
